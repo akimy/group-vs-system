@@ -1,24 +1,25 @@
+import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import { Provider } from 'react-redux'
+import configureStore from './store'
+import Layout from './components/Layout'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={configureStore()}>
+      <div className={styles.app}>
+        <header className={styles.appHeader}>
+          <img src={logo} className={styles.appLogo} alt="logo" />
+
+          <h1 className={styles.title}>
+            TGVS - Tekken Group VS System 
+          </h1>
+        </header>
+
+        <Layout />
+      </div>
+    </Provider>
   );
 }
 

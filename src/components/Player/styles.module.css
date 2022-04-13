@@ -1,0 +1,56 @@
+.root {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    height: 22px;
+
+    border: 1px solid rgb(97, 43, 43);
+    
+    padding: 4px;
+    font-size: 16px;
+
+    border-radius: 5px 0;
+
+    margin-bottom: 12px;
+
+    transition: background-color 200ms ease-in-out;
+}
+
+.root:hover .clearIcon {
+    visibility: visible;
+}
+
+.controls {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.rootActive {
+    background-color: #2a1313;
+}
+
+.rootDisabled {
+    opacity: 0.5;
+    border: 1px solid rgb(85, 75, 75);
+    background-color: rgb(51, 51, 51);
+}
+
+.name {
+    display: flex;
+    align-items: center;
+}
+
+.clearIcon {
+    visibility: hidden;
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.clearIcon:hover {
+    opacity: 1;
+}

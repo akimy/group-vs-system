@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiInputBase-input {
+  color: white !important;
+
+}
+
+.MuiInputLabel-root {
+  color: rgb(158, 158, 158) !important;
+  width: 100%;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  width: 100%;
+}
