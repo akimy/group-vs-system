@@ -1,1 +1,0 @@
-Random match system for group scenarios
