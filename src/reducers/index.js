@@ -4,6 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { ADD_PLAYER, REMOVE_PLAYER, SHUFFLE, TOGGLE_PLAYER_STATUS, TOGGLE_PLAYER_1ST_LIVE, TOGGLE_PLAYER_2ND_LIVE } from "../actions"
 import { selectPlayerById } from '../selectors';
 
+const removeInBattleStatusForList = (players) => {
+    players.forEach(player => {
+        player.inBattle = false;
+    });
+};
+
 function createReducer(initialState, handlers) {
     return function reducer(state = initialState, action) {
         if (handlers.hasOwnProperty(action.type)) {
@@ -97,7 +103,7 @@ export default createReducer([], {
         }
     },
 
-    [SHUFFLE]: (state, {isFinished}) => {
+    [SHUFFLE]: (state, {isFinished, teamN}) => {
         const players = clone(state.players);
 
         const team1ActivePlayers = players.filter(player => player.teamN === 1 && player.isActive);
@@ -107,12 +113,30 @@ export default createReducer([], {
             return state;
         }
 
-        const p1 = getRandomArrEl(team1ActivePlayers);
-        const p2 = getRandomArrEl(team2ActivePlayers);
+        let p1, p2;
 
-        players.forEach(player => {
-            player.inBattle = false;
-        });
+        switch (teamN) {
+            case 1: {
+                p1 = getRandomArrEl(team1ActivePlayers);
+                p2 = team2ActivePlayers.find(player => player.inBattle);
+
+                break;
+            }
+
+            case 2: {
+                p2 = getRandomArrEl(team2ActivePlayers);
+                p1 = team1ActivePlayers.find(player => player.inBattle);
+
+                break;
+            }
+
+            default: {
+                p1 = getRandomArrEl(team1ActivePlayers);
+                p2 = getRandomArrEl(team2ActivePlayers);
+            }
+        }
+
+        removeInBattleStatusForList(players);
 
         p1.inBattle = true;
         p2.inBattle = true;

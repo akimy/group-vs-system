@@ -12,6 +12,9 @@
 }
 
 .wrapper {
+    position: relative;
+    padding-top: 100px;
+
     width: 650px;
     display: flex;
     justify-content: center;
@@ -25,7 +28,13 @@
 }
 
 .vsString {
+    position: absolute;
+    top: 50px;
     color: white;
     font-size: 20px;
     margin-bottom: 20px;
+}
+
+.mainButton {
+    margin: 0 20px !important;
 }

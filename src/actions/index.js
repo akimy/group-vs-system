@@ -24,6 +24,6 @@ export const removePlayer = makeActionCreator(REMOVE_PLAYER, 'id');
 export const togglePlayerStatus = makeActionCreator(TOGGLE_PLAYER_STATUS, 'id');
 export const togglePlayerFirstLive = makeActionCreator(TOGGLE_PLAYER_1ST_LIVE, 'id');
 export const togglePlayerSecondLive = makeActionCreator(TOGGLE_PLAYER_2ND_LIVE, 'id');
-export const shuffle = makeActionCreator(SHUFFLE, 'isFinished');
+export const shuffle = makeActionCreator(SHUFFLE, 'isFinished', 'teamN');
 export const shuffleEnd = makeActionCreator(SHUFFLE_END);
 export const writeLog = makeActionCreator(WRITE_LOG, 'message');

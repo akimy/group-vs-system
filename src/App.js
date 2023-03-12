@@ -13,7 +13,7 @@ function App() {
           <img src={logo} className={styles.appLogo} alt="logo" />
 
           <h1 className={styles.title}>
-            TGVS - Tekken Group VS System 
+            Tekken Group VS System 
           </h1>
         </header>
 
